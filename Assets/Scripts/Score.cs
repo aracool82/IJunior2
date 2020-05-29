@@ -11,14 +11,20 @@ public class Score : MonoBehaviour
     {
         ShowScore(_score);
         _coins = FindObjectsOfType<Coin>();
-        foreach (var coin in _coins)
-            coin.CollectedCoin += onCollectedCoin;
+        if (_coins.Length != 0) 
+        {
+            foreach (var coin in _coins)
+                coin.CollectedCoin += onCollectedCoin;
+        }
+        else
+            Debug.Log("Ни одного Coin не найдено, учет набраых очков не будет вестись.");
     }
 
     private void OnDisable()
     {
-        foreach (var coin in _coins)
-            coin.CollectedCoin -= onCollectedCoin;
+        if(_coins != null)
+            foreach (var coin in _coins)
+                coin.CollectedCoin -= onCollectedCoin;
     }
 
     private void onCollectedCoin()
@@ -29,6 +35,6 @@ public class Score : MonoBehaviour
 
     private void ShowScore(int score)
     {
-        _scoreText.text = score.ToString();
+        _scoreText.text = $" Очки: {score.ToString()}";
     }
 }
