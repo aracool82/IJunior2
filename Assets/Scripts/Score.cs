@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
 
     private void OnDisable()
     {
-        if(_coins != null)
+        if(_coins.Length != 0)
             foreach (var coin in _coins)
                 coin.CollectedCoin -= onCollectedCoin;
     }
