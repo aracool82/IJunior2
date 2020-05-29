@@ -4,9 +4,8 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
-    [SerializeField] private Coin[] _coins;
+    private Coin[] _coins;
     private int _score=0;
-   
 
     private void Awake()
     {
@@ -14,7 +13,6 @@ public class Score : MonoBehaviour
         _coins = FindObjectsOfType<Coin>();
         foreach (var coin in _coins)
             coin.CollectedCoin += onCollectedCoin;
-
     }
 
     private void OnDisable()
