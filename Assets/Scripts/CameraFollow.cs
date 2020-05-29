@@ -2,7 +2,7 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Transform _playerTransform;
 
     void Update()
     {
@@ -11,6 +11,6 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 GetPosition()
     {
-        return new Vector3(_player.transform.position.x, transform.position.y, transform.position.z);
+        return new Vector3(_playerTransform.position.x, transform.position.y, transform.position.z);
     }
 }

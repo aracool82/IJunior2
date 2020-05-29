@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.TryGetComponent(out Platform platform))
+        if (collision.collider.TryGetComponent(out Cell cell))
             _onGraund = true;
     }
 }
