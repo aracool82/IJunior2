@@ -5,9 +5,9 @@ public class Coin : MonoBehaviour
 {
     public event UnityAction CollectedCoin;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.TryGetComponent(out Player player))
+        if (other.TryGetComponent(out Player player))
         {
             DestroyCoin();
             CollectedCoin?.Invoke();
