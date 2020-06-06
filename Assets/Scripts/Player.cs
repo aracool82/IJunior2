@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
 
     private bool _onGraund=true;
+
+    public event UnityAction CollectedCoin;
 
     void Awake()
     {
@@ -40,9 +43,16 @@ public class Player : MonoBehaviour
         _rigidbody.AddForce(Vector3.up * _powerJamp, ForceMode.Impulse);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out Coin coin))
+            CollectedCoin?.Invoke();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.TryGetComponent(out Cell cell))
-            _onGraund = true;
+        if (collision.collider.TryGetComponent(out GridObject gridObject))
+            if(gridObject.Layer == GridLayer.Ground)
+                _onGraund = true;
     }
 }
