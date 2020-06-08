@@ -14,12 +14,12 @@ public class Score : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.CollectedCoin += onCollectedCoin;
+        _player.CoinCollected += onCollectedCoin;
     }
 
     private void OnDisable()
     {
-        _player.CollectedCoin -= onCollectedCoin;
+        _player.CoinCollected -= onCollectedCoin;
     }
 
     private void onCollectedCoin()

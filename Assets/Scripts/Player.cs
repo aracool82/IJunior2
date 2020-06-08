@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private bool _onGraund = true;
 
-    public event UnityAction CollectedCoin;
+    public event UnityAction CoinCollected;
 
     void Awake()
     {
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Coin coin))
-            CollectedCoin?.Invoke();
+            CoinCollected?.Invoke();
     }
 
     private void OnCollisionEnter(Collision collision)
