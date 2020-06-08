@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 
-public class PanelEffect : MonoBehaviour
+public class EffectFadeInOut : MonoBehaviour
 {
     [SerializeField] private Button _buttonAutor;
     private bool _isVisible;
@@ -18,14 +18,14 @@ public class PanelEffect : MonoBehaviour
         _canvasGroup.blocksRaycasts = false;
     }
 
-    public void StartEffect()
+    public void StartFadeInOut()
     {
         _buttonAutor.interactable = false;
-        StartCoroutine(Effect(_isVisible));
+        StartCoroutine(FadeInOut(_isVisible));
         _isVisible = !_isVisible;
     }
 
-    public IEnumerator Effect (bool isVisible)
+    public IEnumerator FadeInOut (bool isVisible)
     {
         var addAlpha = 0.1f;
         if (isVisible)
