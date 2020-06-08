@@ -5,14 +5,14 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [Range(1f,2f)]
-    [SerializeField] private float _speed=1;
+    [SerializeField] private float _speed = 1;
 
     [Range(4f,6f)]
-    [SerializeField] private float _powerJamp=5f;
+    [SerializeField] private float _powerJamp = 5f;
 
     [SerializeField] private Rigidbody _rigidbody;
 
-    private bool _onGraund=true;
+    private bool _onGraund = true;
 
     public event UnityAction CollectedCoin;
 
