@@ -383,8 +383,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartEffect
+      - m_Target: {fileID: 2014860451}
+        m_MethodName: StartFadeInOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -972,8 +972,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartEffect
+      - m_Target: {fileID: 2014860451}
+        m_MethodName: StartFadeInOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
