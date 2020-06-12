@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 1;
 
     [Range(4f,6f)]
-    [SerializeField] private float _powerJamp = 5f;
+    [SerializeField] private float _jamp = 5f;
 
     [SerializeField] private Rigidbody _rigidbody;
 
-    private bool _onGraund = true;
+    private bool _onGround = true;
 
     public event UnityAction CoinCollected;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) && _onGraund ) || (Input.GetMouseButtonDown(0) && _onGraund))
+        if ((Input.GetKeyDown(KeyCode.Space) && _onGround ) || (Input.GetMouseButtonDown(0) && _onGround))
             Jump();
     }
 
@@ -39,8 +39,8 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        _onGraund = false;
-        _rigidbody.AddForce(Vector3.up * _powerJamp, ForceMode.Impulse);
+        _onGround = false;
+        _rigidbody.AddForce(Vector3.up * _jamp, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +53,6 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.TryGetComponent(out GridObject gridObject))
             if(gridObject.Layer == GridLayer.Ground)
-                _onGraund = true;
+                _onGround = true;
     }
 }
