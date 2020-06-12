@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [Range(1f,2f)]
-    [SerializeField] private float _speed = 1;
+    [SerializeField] private float _speed = 1f;
 
     [Range(4f,6f)]
     [SerializeField] private float _jamp = 5f;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) && _onGround ) || (Input.GetMouseButtonDown(0) && _onGround))
+        if ((Input.GetKeyDown(KeyCode.Space) && _onGround ))
             Jump();
     }
 
